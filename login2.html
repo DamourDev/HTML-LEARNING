@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg,#59d2de , #8a3de8);
+        }
+  
+        .inner-container{
+            display:flex;
+            flex-direction: column;
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            justify-content: space-around;
+            align-items: center;
+            padding: 5px 30px;
+            max-height: 900px;
+            max-width: 1000px;
+
+
+
+        }
+         @media(min-width:580px){
+            .inner-container{
+            display:flex;
+            flex-direction: column;
+            background-color: white;
+            width: 60%;
+            height: 75%;
+            border: 2px solid rgb(141, 141, 141);
+            justify-content: space-around;
+            align-items: center;
+            padding: 5px 30px;
+            max-width: 400px;
+            
+
+        } 
+        .container{
+            display: flex;
+            flex-direction: row;
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+          
+        }
+
+        a{
+            text-decoration: none;
+        }
+        .input-group{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .input-group label{
+            font-size: 15px;
+            font-weight: 500;
+        }
+        input, .footer button{
+            padding: 10px ;
+            margin: 5px;
+        }
+        .body{
+            width: 100%;
+            
+        }
+        .footer{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+
+        }
+        .head{
+            font-size: 40px;
+            font-weight: 600;
+
+        }
+        .footer button{
+            font-size: large;
+            font-weight: 600;
+            width: 100%;
+            background: linear-gradient(45deg,#59d2de , #8a3de8);
+            border-radius: 3px;
+            border: none;
+            color: white;
+
+        }
+        #cross
+        {
+            font-weight: 600;
+            font-size: 25px;
+            /* background-color: aqua; */
+            padding-left: 98%;
+
+        }
+        </style>
+
+</head>
+<body>
+    <div class="container">
+    <div class="inner-container">
+       <div id="cross">&Cross;</div> 
+    <div class="head">
+        Login Form
+    </div>
+    <div class="body">
+       <div class="input-group">
+        <label for="email-box"> Email or Phone</label>
+        <input type="email" name="" id="email-box">
+       </div>
+        <div class="input-group">
+            <label for="password-box">Password</label>
+            <input type="password" id="password-box">
+            <span><a href="#">forgot password?</a></span>
+        </div>
+    </div>
+    <div class="footer">
+        <button>Log in</button>
+        <span>Not a member?<a href="#">signup now</a></span>
+    </div>
+
+    </div>
+
+
+
+    </div>
+</body>
+</html>
