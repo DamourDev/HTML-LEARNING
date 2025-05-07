@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        padding:0 ;
+        margin : 0 ;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #container {
+        position : absolute ;
+        display : flex ;
+        width : 100% ;
+        height : 100% ;
+        flex-direction : row ;
+        justify-content: flex-start;
+        /* background-color: antiquewhite; */
+
+
+    }
+   
+    #left_container {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* background-color: aqua; */
+        margin-left: 15px;
+        margin-bottom: 20px;
+
+
+    }
+    #right_container {
+        position: relative;
+        flex: 1.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: rgb(140, 154, 154); */
+    }
+    #upper {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center
+    }
+    #upper_right {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 5px;
+        margin-top: 10px;
+    }
+    #top {
+        font-weight: 600;
+        
+    }
+    #bottom {
+        font-size: 6px;
+    }
+    #content {
+        position: relative;
+        font-size: 40px;
+        color: rgb(17, 11, 90);
+        font-weight: 550;
+        
+    }
+    #middle_upper, #lower_top{
+        color: blueviolet;
+        font-weight: 550;
+        padding-bottom: 8px;
+    }
+    #right_container img{
+        object-fit: cover;
+    }
+   
+    </style>
+    
+</head>
+<body>
+    <div id="container">
+        <div id="left_container">
+            <div id="upper">
+                <div id="upper_left">
+                    <img src="image 2.jpeg" width="40px" height="40px" >
+                </div>
+                <div id="upper_right">
+                    <div id="top">ATOMBEAT</div>
+                    <div id="bottom">A DP TECHNOLOGY COMPANY</div>
+                </div>
+            </div>
+            <div id="content"> 
+                <P>Democractize Computational Drug Discovery</P>
+                
+            </div>
+            <div id="middle">
+                <div id="middle_upper">30+</div>
+                <div id="middle_lower">Drug discovery tools developed and validated</div>
+            </div>
+            <div id="lower">
+                <div id="lower_top">70+</div>
+                <div id="lower_bottom">Successful partnerships established</div>
+            </div>
+        </div>
+        <div id="right_container">
+            <img src="image 1.jpeg" width="100%" height="100%">
+        </div>
+    </div>
+</body>
+</html>

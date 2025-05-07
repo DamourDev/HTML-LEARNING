@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .required::after {
+            content: " *";
+            color: red;
+        }
+        legend{
+            color: blue;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+        body{
+            border: 4px solid blue;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        .button{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+        #btn{
+            margin-left: 20px;
+
+        }
+        #btn, #btn1{
+            padding: 5px 15px 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MEMBERSHIP FORM</h1>
+    <fieldset>
+        <legend>Registration Information</legend>
+        <form action="member.php" method="post">
+            <label for="email" class="required">Email Address:</label>
+            <input type="email" id="email" name="email" required ><br><br>
+            <label for="password" class="required">Password:</label>
+            <input type="password" id="password" name="password"  placeholder="At leat 16 characters" required><br><br>
+            <label for="verify psd" class="required">Verify Password:</label>
+            <input type="email" id="verify psd" name="verify psd" required><br><br>
+
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Member information</legend>
+        <form action="">
+            <label > Membership type <input type="radio" name="type" value="individual" checked>Individual</label>
+            <label> <input type="radio" name="type" value="corporate" >Corporate</label><br><br>
+            <label for="name">Company Name</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="Fname" class="required" >First Name</label>
+            <input type="text" id="Fname" name="Fname" required><br><br>
+            <label for="Lname" class="required">Last Name</label>
+            <input type="text" id="Lname" name="Lname" required><br><br>
+            <label for="phone" class="required">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="999-999-9999"><br><br>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Submit your membership</legend>
+        <form action="" class="button">
+            <input type="button" value="Submit" id="btn1"></input>
+            <input type="button" value="Reset" id="btn"></input><br><br>
+        </form>
+    </fieldset>
+</body>
+</html>

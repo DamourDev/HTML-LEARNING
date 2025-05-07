@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic meta settings for character encoding and responsiveness -->
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the page shown in browser tab -->
+    <title>Sidebar</title>
+
+    <!-- Icon font from LineIcons -->
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet">
+
+    <!-- Import custom fonts using Google Fonts -->
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:...'); /* Importing Poppins font */
+    @import url('https://fonts.googleapis.com/css2?family=Mona+Sans:...'); /* Importing Mona Sans */
+
+    /* Set default font for all elements */
+    * {
+        font-family: "Mona sans","Poppins", sans-serif;
+    }
+
+    /* Overall page container, fixed to fill screen */
+    .container {
+        position: fixed; 
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background-color: #f1f1f1;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* Top navigation bar */
+    .container nav {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        position: relative;
+        font-weight: 500;
+    }
+
+    /* Collapse icon (left side menu toggle) */
+    .collapse svg {
+        cursor: pointer;
+        padding: 2px;
+        border-radius: 5px;
+        transition: all .3s ease-in-out;
+    }
+
+    /* Hover effect for collapse icon */
+    .collapse svg:hover {
+        background-color: rgb(219, 219, 219);
+    }
+
+    /* Styling nav list items */
+    .container nav li {
+        list-style: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all .2s ease-in;
+    }
+
+    /* Hover effect for nav items */
+    .container nav li:hover {
+        background-color: #d7efffc8;
+        color: #0084dc;
+    }
+
+    /* Layout for main body below nav */
+    .lower {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Right section workspace */
+    .workspace {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 20px;
+        flex: 1;
+    }
+
+    /* Left sidebar */
+    .sidebar {
+        height: 100%;
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: all .3s ease-in-out;
+        padding-top: 10px;
+        max-width: 300px;
+    }
+
+    /* Sidebar list items */
+    .sidebar li {
+        list-style: none;
+        padding: 10px;
+        color: #033e65;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
+    /* Sidebar label title like "Navigation" */
+    .sidebar label {
+        color: gray;
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+
+    /* Sidebar icons */
+    .sidebar li i {
+        font-size: 17px;
+        color: #024470;
+    }
+
+    /* Collapse button positioning */
+    .collapse {
+        display: flex;
+        position: absolute;
+        left: 5px;
+        justify-content: space-between;
+    }
+
+    /* Workspace text styling */
+    .ws {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+    }
+
+    /* Workspace icon style */
+    .ws i {
+        font-size: 100px;
+        color: #9cc6e1cc;
+    }
+
+    /* Right arrow dropdown icon */
+    .dropdown {
+        position: absolute;
+        right: 4px;
+    }
+
+    /* Submenu under Product */
+    .product-submenu {
+        border-left: 1px solid rgb(165, 165, 165);
+        margin-left: 20px;
+        max-height: 300px;
+        overflow: hidden;
+        transition: all .3s ease-in-out;
+    }
+
+    /* Submenu item style */
+    .product-submenu li {
+        border-bottom: 1px solid gray;
+        width: 20px;
+        position: relative;
+        top: -23px;
+        left: 0px;
+        border-bottom-left-radius: 15px;
+    }
+
+    /* Submenu label style */
+    .product-submenu li label {
+        background-color: white;
+        position: relative;
+        top: 23px;
+        left: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        padding: 5px;
+    }
+
+    /* Hover effect for submenu items */
+    .product-submenu li label:hover {
+        background-color: rgb(232, 232, 232);
+        padding-left: 13px;
+    }
+
+    /* Hide submenu when collapsed */
+    .product-submenu-hidden {
+        max-height: 0px;
+        overflow: hidden;
+    }
+
+    /* Rotate arrow icon when expanded */
+    .inverted {
+        transform: rotate(90deg);
+    }
+
+    /* Sidebar animation */
+    #p {
+        transition: all .3s ease-in-out;
+    }
+
+    /* Hide sidebar when collapsed */
+    .sidebar-hidden {
+        max-width: 33px !important;
+        overflow: hidden !important;
+        min-width: 0px !important;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top nav bar -->
+        <nav>
+            <!-- Collapse sidebar button -->
+            <div class="collapse" onclick="toggle_sidebar()">
+                <!-- Icon for collapsing sidebar -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" ...>
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="9" y1="3" x2="9" y2="21"/>
+                </svg>
+            </div>
+            <!-- Navigation links -->
+            <li>Logo</li>
+            <li>Home</li>
+            <li>Contact</li>
+            <li>Login</li>
+        </nav>
+
+        <!-- Main area: sidebar and workspace -->
+        <div class="lower">
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <label>Navigation</label>
+                <li><i class="lni lni-dashboard-square-1"></i> Dashboard</li>
+                <li onclick="toggle_submenu()">
+                    <i class="lni lni-producthunt"></i> Product
+                    <i class="lni lni-angle-double-right dropdown" id="p"></i>
+                </li>
+                <!-- Product submenu -->
+                <div id="submenu" class="product-submenu product-submenu-hidden">
+                    <li><label>Overview</label></li>
+                    <li><label>Drafts</label></li>
+                    <li><label>Released</label></li>
+                </div>
+                <!-- More menu items -->
+                <li><i class="lni lni-user-4"></i> Customers</li>
+                <li><i class="lni lni-wallet-1"></i> Shop</li>
+                <li><i class="lni lni-dollar-circle"></i> Income</li>
+                <li><i class="lni lni-thumbs-up-3"></i> Promote</li>
+            </div>
+
+            <!-- Right side workspace -->
+            <div class="workspace">
+                <div class="ws">
+                    <i class="lni lni-plug-1"></i>
+                    We Connect
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden checkboxes used for toggling state -->
+        <input type="checkbox" hidden id="submenu-input">
+        <input type="checkbox" hidden checked id="sidebar-input">
+    </div>
+
+    <!-- JavaScript for toggling submenu and sidebar -->
+    <script>
+        function toggle_submenu() {
+            // Check if submenu is currently visible
+            if (!(document.getElementById('submenu-input').checked)) {
+                // Hide submenu
+                document.getElementById('submenu').classList.add('product-submenu-hidden');
+                document.querySelector("#p").classList.remove('inverted');
+            } else {
+                // Show submenu
+                document.getElementById('submenu').classList.remove('product-submenu-hidden');
+                document.querySelector("#p").classList.add('inverted');
+            }
+            // Toggle the checkbox (which stores state)
+            document.getElementById("submenu-input").click();
+        }
+
+        function toggle_sidebar() {
+            // If checkbox is checked, hide sidebar
+            if (document.getElementById('sidebar-input').checked) {
+                document.getElementById('sidebar').classList.add('sidebar-hidden');
+            } else {
+                // Show sidebar
+                document.getElementById('sidebar').classList.remove('sidebar-hidden');
+            }
+            // Toggle checkbox to store state
+            document.getElementById('sidebar-input').click();
+        }
+    </script>
+</body>
+</html>
