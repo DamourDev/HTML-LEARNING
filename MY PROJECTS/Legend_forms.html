@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            align-items: center;
+            margin: 0;
+        }
+        #container{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin: 20px;
+            justify-content: center; 
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 350px;
+            gap: 10px;
+            background-color:rgb(235, 235, 235)
+                  
+        }
+        h1{
+            text-align: center;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+            
+        }
+        label{
+            text-transform: capitalize;
+            font-weight: 550;
+        }
+        input{
+            width: 80%;
+            padding: 8px;
+        }
+        #btn1{
+            width: 60px;
+            align-self: center;
+            border-radius: 5px;
+        }
+        .btn{
+            width: 100px;
+            align-self: center;
+        }
+        #btn3{
+            background-color: aqua;
+            align-self: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Legend form</h1>
+        <label for="id"> enter id</label>
+        <input type="text" placeholder="Enter id">
+        <label for="confirm">enter confirm pass</label>
+        <input type="password" placeholder="Enter password">
+        <button id="btn1">Submit</button>
+        <button id="btn2" class="btn" hidden>Fill in data</button>
+        <button id="btn3" class="btn" hidden>Well done</button>
+        
+    </div>
+
+    <script>
+        const submitButton = document.getElementById("btn1")
+        const otherButton = document.querySelector(".btn")
+        const fillButton = document.getElementById('btn2')
+        const Bdone = document.getElementById('btn3')
+        const enterId = document.querySelector("input[placeholder = 'Enter id']")
+        const enterPass = document.querySelector("input[placeholder = 'Enter password']")
+
+        let direction = "center" // initial our button is at center
+
+        submitButton.addEventListener('mouseover', ()=>{
+            if (enterId.value.trim() == "" || enterPass.value.trim() == ""){
+                submitButton.hidden = true;
+                fillButton.hidden = false;
+            }
+        });
+
+        fillButton.addEventListener('mouseover', ()=>{
+            if (enterId.value.trim() == "" || enterPass.value.trim() == ""){
+                
+                let px = 0;
+
+                if(direction === "center"){
+                    px = 30
+                    direction = "right"
+                }
+                else if (direction === "right"){
+                    px = -100
+                    direction = "left"
+                }
+                else{
+                    px = 70
+                    direction = "right"
+                }
+                fillButton.style.transform = `translateX(${px}px)`;
+            }
+            else{
+                submitButton.hidden = true;
+                fillButton.hidden = true;
+                Bdone.hidden = false;
+            
+            }
+
+        }) 
+        // this function will reset buttons to initial step
+        function resetButtons() {
+            if(enterId.value.trim() === "" || enterPass.value.trim() === ""){
+                submitButton.hidden = false;
+                fillButton.hidden = true;
+                Bdone.hidden = true;
+            }
+        }
+        // call function when input is deleted
+
+        enterId.addEventListener('input', resetButtons);
+        enterPass.addEventListener('input', resetButtons);
+
+
+    </script>
+</body>
+</html>
